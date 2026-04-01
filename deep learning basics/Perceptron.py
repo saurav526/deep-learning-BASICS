@@ -35,7 +35,7 @@ for i in range(len(X)):
     else:
         plt.scatter(X[i][0], X[i][1])
 
-# Decision boundary: w1*x1 + w2*x2 + b = 0
+# Decision boundary: w1*x1 + w2*x2 + b = 0 => x2 = -(w1*x1 + b) / w2
 x_vals = np.linspace(-0.5, 1.5, 100)
 y_vals = -(weights[0]*x_vals + bias) / weights[1]
 

@@ -16,6 +16,7 @@ model = models.Sequential([
     layers.Dense(128, activation='relu'),
     layers.Dense(10, activation='softmax')
 ])
+model.summary()
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',

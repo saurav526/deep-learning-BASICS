@@ -25,4 +25,7 @@ model.fit(x_train, y_train, epochs=5)
 
 
 test_loss, test_acc = model.evaluate(x_test, y_test)
-print(f'\nTest accuracy: {test_acc}')
+print(f'\nTest accuracy: {test_acc}') 
+predictions = model.predict(x_test)
+print(f'Predicted probabilities for the first test image: {predictions[0]}')
+print(f'Predicted class for the first test image: {tf.argmax(predictions[0])}')

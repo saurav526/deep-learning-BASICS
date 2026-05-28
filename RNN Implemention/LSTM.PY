@@ -24,7 +24,7 @@ generator = TimeseriesGenerator(
     batch_size=1
 )
 
-# Build LSTM Model
+
 model = Sequential([
     
     # LSTM Layer

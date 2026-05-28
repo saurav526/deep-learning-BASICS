@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
 
-# Load dataset
+
 (x_train, y_train), (x_test, y_test) = datasets.mnist.load_data()
 
 # Normalize data

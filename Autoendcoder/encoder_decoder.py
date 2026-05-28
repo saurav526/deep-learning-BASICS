@@ -6,7 +6,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.datasets import mnist
 
-# Load MNIST Dataset
+
 (x_train, _), (x_test, _) = mnist.load_data()
 
 # Normalize Data

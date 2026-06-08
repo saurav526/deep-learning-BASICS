@@ -1,0 +1,67 @@
+class TransformerDecoderLayer(layers.Layer):
+    def __init__(self, d_model, d_ff):
+        super().__init__()
+
+        self.masked_attn = MaskedSelfAttention(
+            d_model
+        )
+
+        self.cross_attn = CrossAttention(
+            d_model
+        )
+
+        self.ffn = FeedForward(
+            d_model,
+            d_ff
+        )
+
+        self.norm1 = layers.LayerNormalization(
+            epsilon=1e-6
+        )
+
+        self.norm2 = layers.LayerNormalization(
+            epsilon=1e-6
+        )
+
+        self.norm3 = layers.LayerNormalization(
+            epsilon=1e-6
+        )
+
+    def call(self, x, encoder_output):
+
+        masked_out, _ = self.masked_attn(x)
+
+        x = self.norm1(x + masked_out)
+
+        cross_out, _ = self.cross_attn(
+            x,
+            encoder_output
+        )
+
+        x = self.norm2(x + cross_out)
+
+        ffn_out = self.ffn(x)
+
+        x = self.norm3(x + ffn_out)
+
+        return x
+    
+encoder_output = tf.random.normal(
+    (2, 10, 128)
+)
+
+decoder_input = tf.random.normal(
+    (2, 6, 128)
+)
+
+decoder = TransformerDecoderLayer(
+    d_model=128,
+    d_ff=512
+)
+
+output = decoder(
+    decoder_input,
+    encoder_output
+)
+
+print(output.shape)

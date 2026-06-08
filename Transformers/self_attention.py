@@ -22,7 +22,9 @@ class SelfAttention(layers.Layer):
 
         output = tf.matmul(attention_weights, V)
 
-        return output, attenx = tf.random.normal((2, 5, 128))
+        return output, attention_weights
+
+x = tf.random.normal((2, 5, 128))
 
 attn = SelfAttention(128)
 

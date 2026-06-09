@@ -22,9 +22,6 @@ def positional_encoding(position, d_model):
     return tf.cast(pos_encoding, dtype=tf.float32)
 
 
-# =====================================================
-# Multi Head Attention
-# =====================================================
 
 class MultiHeadAttention(layers.Layer):
 

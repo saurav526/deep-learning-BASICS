@@ -140,9 +140,6 @@ def point_wise_ffn(d_model, dff):
     ])
 
 
-# =====================================================
-# Encoder Layer
-# =====================================================
 
 class EncoderLayer(layers.Layer):
 
